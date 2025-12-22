@@ -1,7 +1,7 @@
 # 👋 𝘏𝘪 𝘵𝘩𝘦𝘳𝘦! 𝘐’𝘮 𝘋𝘪𝘣𝘺𝘢𝘫𝘺𝘰𝘵𝘪 𝘗𝘳𝘢𝘥𝘩𝘢𝘯<br><br>
 
 # 💫 About Me:
-~ Just a silly coder, chasing semicolons<br><br>💻 I’m a passionate Computer Science student with a strong interest in <br>cyber-security, web development, open-source, and game-related projects.<br><br>🎨 I enjoy turning ideas into functional, visually appealing digital experiences.
+~ Just a silly coder, chasing semicolons<br><br>💻 I’m a passionate Computer Science student with a strong interest in <br> web development,game-related projects.<br><br>🎨 I enjoy turning ideas into functional, visually appealing digital experiences.
 
 
 ## 🌐 Socials:
