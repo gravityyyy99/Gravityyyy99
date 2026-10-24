@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="Dibyajyoti Pradhan: Computer Science student and web developer">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#1a1463"/>
+      <stop offset="1" stop-color="#0b5560"/>
+    </linearGradient>
+    <linearGradient id="name" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7dd3fc"/>
+      <stop offset="0.5" stop-color="#c4b5fd"/>
+      <stop offset="1" stop-color="#5eead4"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="38"/>
+    </filter>
+    <clipPath id="round"><rect width="1200" height="300" rx="20"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="1200" height="300" fill="url(#bg)"/>
+
+    <!-- slowly drifting colour glows -->
+    <g filter="url(#soft)" opacity="0.6">
+      <circle cx="190" cy="90" r="95" fill="#38bdf8">
+        <animate attributeName="cx" values="190;270;190" dur="10s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="90;130;90" dur="10s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1000" cy="230" r="115" fill="#a78bfa">
+        <animate attributeName="cy" values="230;150;230" dur="12s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="620" cy="30" r="70" fill="#2dd4bf">
+        <animate attributeName="cx" values="620;540;620" dur="14s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- faint grid -->
+    <g stroke="#ffffff" stroke-opacity="0.045" stroke-width="1">
+      <path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200"/>
+      <path d="M100 0V300M200 0V300M300 0V300M400 0V300M500 0V300M600 0V300M700 0V300M800 0V300M900 0V300M1000 0V300M1100 0V300"/>
+    </g>
+
+    <!-- decorative code symbols -->
+    <g font-family="Consolas, 'Courier New', monospace" font-weight="700" fill="#ffffff">
+      <text x="48" y="190" font-size="150" fill-opacity="0.07">&lt;/&gt;</text>
+      <text x="940" y="120" font-size="120" fill-opacity="0.06">{ }</text>
+    </g>
+
+    <!-- name -->
+    <text x="600" y="132" text-anchor="middle" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="68" font-weight="800" letter-spacing="1" fill="url(#name)">Dibyajyoti Pradhan</text>
+
+    <!-- glowing divider -->
+    <rect x="300" y="152" width="600" height="3" rx="1.5" fill="url(#line)">
+      <animate attributeName="opacity" values="0.45;1;0.45" dur="4s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- rotating tagline: each line fades in for 3 seconds, then the next one -->
+    <g font-family="Consolas, 'Courier New', monospace" font-size="25" fill="#e2e8f0" text-anchor="middle">
+      <text x="600" y="203" opacity="0">Computer Science Student  |  Bhubaneswar
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.21;0.25;1" dur="12s" begin="0s" repeatCount="indefinite"/>
+      </text>
+      <text x="600" y="203" opacity="0">Web Developer &amp; Creative Coder
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.21;0.25;1" dur="12s" begin="3s" repeatCount="indefinite"/>
+      </text>
+      <text x="600" y="203" opacity="0">Building real-time, full-stack apps
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.21;0.25;1" dur="12s" begin="6s" repeatCount="indefinite"/>
+      </text>
+      <text x="600" y="203" opacity="0">Open to internship opportunities
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.21;0.25;1" dur="12s" begin="9s" repeatCount="indefinite"/>
+      </text>
+    </g>
+
+    <!-- small footer line -->
+    <text x="600" y="262" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="15" fill="#94a3b8" fill-opacity="0.9">~ just a silly coder, chasing semicolons ~</text>
+  </g>
+</svg>
