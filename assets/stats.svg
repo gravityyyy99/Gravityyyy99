@@ -33,16 +33,16 @@
     </g>
     <g transform="translate(660,78)">
       <rect width="196" height="86" rx="12" fill="#161b22" stroke="#30363d"/>
-      <text x="98" y="44" text-anchor="middle" font-size="34" font-weight="800" fill="url(#num)">110</text>
+      <text x="98" y="44" text-anchor="middle" font-size="34" font-weight="800" fill="url(#num)">111</text>
       <text x="98" y="68" text-anchor="middle" font-size="13" fill="#8b949e">Contributions (12 mo)</text>
     </g>
     <text x="36" y="188" font-size="13" font-weight="600" fill="#8b949e">Most used languages</text>
-    <g clip-path="url(#barclip)"><rect x="36.0" y="196" width="443.7" height="14" fill="#f1e05a"/><rect x="479.7" y="196" width="237.4" height="14" fill="#a855f7"/><rect x="717.2" y="196" width="85.5" height="14" fill="#e34c26"/><rect x="802.7" y="196" width="60.7" height="14" fill="#3178c6"/><rect x="863.4" y="196" width="0.6" height="14" fill="#3572a5"/></g>
+    <g clip-path="url(#barclip)"><rect x="36.0" y="196" width="445.2" height="14" fill="#f1e05a"/><rect x="481.2" y="196" width="236.5" height="14" fill="#a855f7"/><rect x="717.7" y="196" width="85.2" height="14" fill="#e34c26"/><rect x="802.9" y="196" width="60.5" height="14" fill="#3178c6"/><rect x="863.4" y="196" width="0.6" height="14" fill="#3572a5"/></g>
     
     <circle cx="41" cy="234" r="5" fill="#f1e05a"/>
-    <text x="54" y="238" font-size="14" fill="#e6edf3">JavaScript <tspan fill="#8b949e">53.6%</tspan></text>
+    <text x="54" y="238" font-size="14" fill="#e6edf3">JavaScript <tspan fill="#8b949e">53.8%</tspan></text>
     <circle cx="321" cy="234" r="5" fill="#a855f7"/>
-    <text x="334" y="238" font-size="14" fill="#e6edf3">CSS <tspan fill="#8b949e">28.7%</tspan></text>
+    <text x="334" y="238" font-size="14" fill="#e6edf3">CSS <tspan fill="#8b949e">28.6%</tspan></text>
     <circle cx="601" cy="234" r="5" fill="#e34c26"/>
     <text x="614" y="238" font-size="14" fill="#e6edf3">HTML <tspan fill="#8b949e">10.3%</tspan></text>
     <circle cx="41" cy="258" r="5" fill="#3178c6"/>
