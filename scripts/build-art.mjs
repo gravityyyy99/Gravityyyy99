@@ -69,11 +69,11 @@ function terminal() {
   const lines = [
     [[['~/dibya', C.st], [' $ ', C.pl], ['whoami', C.fn]]],
     [[['> Dibyajyoti Pradhan', C.pl], [' // aka Dibya, aka gravityyyy99', C.cm]]],
-    [[['~/dibya', C.st], [' $ ', C.pl], ['cat about.ts', C.fn]]],
-    [[['class ', C.kw], ['Dibya ', C.ty], ['extends ', C.kw], ['Engineer ', C.ty], ['implements ', C.kw], ['Creative ', C.ty], ['{', C.pl]]],
-    [[['  readonly ', C.kw], ['stack', C.pr], [' = [', C.pl], ["'React'", C.st], [', ', C.pl], ["'MongoDB'", C.st], [', ', C.pl], ["'SQL'", C.st], [', ', C.pl], ["'Firebase'", C.st], ['];', C.pl]]],
-    [[['  private ', C.kw], ['bugs', C.pr], [': Bug[] = [];  ', C.pl], ['// O(n) in the morning, O(n log n) after coffee', C.cm]]],
-    [[['  async ', C.kw], ['build', C.fn], ['(idea: ', C.pl], ['Idea', C.ty], ['): ', C.pl], ['Promise', C.ty], ['<', C.pl], ['App', C.ty], ['> {', C.pl]]],
+    [[['~/dibya', C.st], [' $ ', C.pl], ['cat about.js', C.fn]]],
+    [[['class ', C.kw], ['Dibya ', C.ty], ['extends ', C.kw], ['Engineer ', C.ty], ['{', C.pl]]],
+    [[['  stack', C.pr], [' = [', C.pl], ["'React'", C.st], [', ', C.pl], ["'MongoDB'", C.st], [', ', C.pl], ["'SQL'", C.st], [', ', C.pl], ["'Firebase'", C.st], ['];', C.pl]]],
+    [[['  bugs', C.pr], [' = [];  ', C.pl], ['// O(n) in the morning, O(n log n) after coffee', C.cm]]],
+    [[['  async ', C.kw], ['build', C.fn], ['(idea) {', C.pl]]],
     [[['    while ', C.kw], ['(!idea.shipped) { ', C.pl], ['code', C.fn], ['(); ', C.pl], ['debug', C.fn], ['(); ', C.pl], ['coffee', C.fn], ['(); }  ', C.pl], ['// infinite loop, by design', C.cm]]],
     [[['    return ', C.kw], ['deploy', C.fn], ['(idea);  ', C.pl], ['// works on my machine, and on Render', C.cm]]],
     [[['  }', C.pl]]],
@@ -96,12 +96,12 @@ function terminal() {
     const text = spans[0].map(([t, c]) => `<tspan fill="${c}">${esc(t)}</tspan>`).join('');
     body += `<text x="36" y="${y}" ${MONO} font-size="15" xml:space="preserve" clip-path="url(#l${i})">${text}</text>`;
   });
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Terminal showing a TypeScript class that describes Dibya">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Terminal showing a JavaScript class that describes Dibya">
   <defs>${DEFS}${clips}</defs>
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="#0d1117" stroke="#30363d"/>
   <path d="M0.5 14.5a14 14 0 0 1 14-14h971a14 14 0 0 1 14 14V40H0.5z" fill="#161b22"/>
   <circle cx="26" cy="22" r="6" fill="#ff5f56"/><circle cx="48" cy="22" r="6" fill="#ffbd2e"/><circle cx="70" cy="22" r="6" fill="#27c93f"/>
-  <text x="500" y="27" text-anchor="middle" ${MONO} font-size="13" fill="#8b949e">dibya@portfolio: ~/about.ts</text>
+  <text x="500" y="27" text-anchor="middle" ${MONO} font-size="13" fill="#8b949e">dibya@portfolio: ~/about.js</text>
   ${body}
   <rect x="36" y="${H - 30}" width="9" height="17" fill="#34d399"><animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/></rect>
 </svg>
@@ -196,12 +196,14 @@ function certs() {
 function journey() {
   const W = 1000, H = 330;
   const nodes = [
-    ['2021', 'School (2021-23)', 'Prabhujee English Medium School', 'Physics, Chem, Maths, CS', '#fbbf24'],
-    ['2023', 'B.Tech CSE', 'Gandhi Engineering College', 'CGPA 8.21, still pursuing', '#22d3ee'],
-    ['QA', 'Beta Tester', 'UGW, FAU-G Domination, Indus', 'Hunting bugs in game builds', '#34d399'],
-    ['Now', 'President, Media Club', 'PRATIBIMBA, GEC', 'Leading campus media + events', '#f472b6'],
+    ['11-12', 'Class 11 and 12', 'Prabhujee English School', 'Physics, Chem, Maths, CS', '#fbbf24'],
+    ['2023', 'B.Tech CSE', 'Gandhi Engineering College', 'Where the real debugging began', '#22d3ee'],
+    ['QA', 'Game Beta Tester', 'UGW, FAU-G Domination, Indus', 'Hunting bugs in game builds', '#34d399'],
+    ['23-26', 'President, Media Club', 'PRATIBIMBA, GEC', 'Led campus media and events', '#a78bfa'],
+    ['2026', 'International Photography Win', 'Won an international event', 'One of my photos got featured', '#f472b6'],
+    ['Now', 'Final-year student', 'B.Tech CSE, CGPA 8.21', 'Building and learning', '#fb923c'],
   ];
-  const x0 = 135, step = 243, y = 130;
+  const x0 = 125, step = 150, y = 130;
   const pts = nodes.map((_, i) => x0 + i * step);
   const els = nodes.map(([tag, t, a, b, c], i) => {
     const x = pts[i];

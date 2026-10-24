@@ -10,7 +10,7 @@
 
 </div>
 
-<img src="assets/terminal.svg" alt="Terminal that prints a TypeScript class describing Dibya" width="100%">
+<img src="assets/terminal.svg" alt="Terminal that prints a JavaScript class describing Dibya" width="100%">
 
 <br>
 
@@ -49,7 +49,7 @@
 
 ## 🧭 Journey
 
-<img src="assets/journey.svg" alt="Timeline: school, B.Tech CSE at Gandhi Engineering College, game QA beta tester, Media Club president" width="100%">
+<img src="assets/journey.svg" alt="Timeline: class 11-12, B.Tech CSE, game beta tester, Media Club president 2023-26, international photography win, final-year student" width="100%">
 
 <br>
 
