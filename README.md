@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/header.svg" alt="Dibyajyoti Pradhan: computer science engineer and full-stack developer" width="100%">
+<img src="assets/header.svg?v=3" alt="Dibyajyoti Pradhan: computer science engineer and full-stack developer" width="100%">
 
 <p>
   <a href="https://github.com/gravityyyy99?tab=followers"><img src="https://img.shields.io/github/followers/gravityyyy99?label=Followers&style=for-the-badge&logo=github&color=0d9488&labelColor=111827" alt="GitHub followers"></a>
@@ -10,13 +10,13 @@
 
 </div>
 
-<img src="assets/terminal.svg" alt="Terminal that prints a JavaScript class describing Dibya" width="100%">
+<img src="assets/terminal.svg?v=3" alt="Terminal that prints a JavaScript class describing Dibya" width="100%">
 
 <br>
 
 ## 🛰️ Tech stack, in orbit
 
-<img src="assets/orbit.svg" alt="Animated orbit of technologies: JavaScript, TypeScript, Python, Java, React, Node.js, Express, MongoDB, MySQL, Firebase, Git and more" width="100%">
+<img src="assets/orbit.svg?v=3" alt="Animated orbit of technologies: JavaScript, TypeScript, Python, Java, React, Node.js, Express, MongoDB, MySQL, Firebase, Git and more" width="100%">
 
 <br>
 
@@ -43,13 +43,13 @@
 
 ## 🏅 Certifications
 
-<img src="assets/certs.svg" alt="Certifications: Namaste JavaScript, React and Redux, Columbia+ Prompt Engineering and Machine Learning, Outskill Gen AI, Databricks, EY and Microsoft AI Skills Passport, Naukri Young Turks, NPTEL IoT" width="100%">
+<img src="assets/certs.svg?v=3" alt="Certifications: Namaste JavaScript, React and Redux, Columbia+ Prompt Engineering and Machine Learning, Outskill Gen AI, Databricks, EY and Microsoft AI Skills Passport, Naukri Young Turks, NPTEL IoT" width="100%">
 
 <br>
 
 ## 🧭 Journey
 
-<img src="assets/journey.svg" alt="Timeline: class 11-12, B.Tech CSE, game beta tester, Media Club president 2023-26, international photography win, final-year student" width="100%">
+<img src="assets/journey.svg?v=3" alt="Timeline: class 11-12, B.Tech CSE, game beta tester, Media Club president 2023-26, international photography win, final-year student" width="100%">
 
 <br>
 
@@ -57,7 +57,7 @@
 
 <div align="center">
 
-<img src="assets/stats.svg" alt="GitHub statistics: repositories, stars, followers, contributions and most used languages" width="100%">
+<img src="assets/stats.svg?v=3" alt="GitHub statistics: repositories, stars, followers, contributions and most used languages" width="100%">
 
 <br><br>
 
@@ -82,4 +82,4 @@
   <a href="https://reddit.com/user/gravityyyy99"><img src="https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Reddit"></a>
 </p>
 
-<img src="assets/footer.svg" alt="Thanks for stopping by" width="100%">
+<img src="assets/footer.svg?v=3" alt="Thanks for stopping by" width="100%">
