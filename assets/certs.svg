@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1016" height="614" viewBox="0 0 1016 614" role="img" aria-label="Certifications earned">
+  <defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="0.55" stop-color="#101a36"/><stop offset="1" stop-color="#1a1038"/></linearGradient>
+  <linearGradient id="ink" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#f472b6"/></linearGradient>
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <rect width="1016" height="614" rx="18" fill="url(#bg)"/>
+  <text x="24" y="40" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="15" fill="#64748b">const certifications = [ <tspan fill="#34d399">// 10 and counting</tspan></text>
+  <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.00s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="0.00s" fill="freeze"/>
+      <rect x="20" y="64" width="480" height="92" rx="14" fill="#111827" stroke="#fbbf24" stroke-opacity="0.55"/>
+      <rect x="20" y="64" width="6" height="92" rx="3" fill="#fbbf24"/>
+      <circle cx="64" cy="110" r="22" fill="#fbbf24" fill-opacity="0.15" stroke="#fbbf24"/>
+      <path d="M54 111 l7 7 l13 -15" fill="none" stroke="#fbbf24" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="0.40s" fill="freeze"/></path>
+      <text x="102" y="97" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">Namaste JavaScript</text>
+      <text x="102" y="120" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#fbbf24">NamasteDev</text>
+      <text x="102" y="140" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">Closures, event loop, async JS</text>
+    </g><g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.18s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="0.18s" fill="freeze"/>
+      <rect x="516" y="64" width="480" height="92" rx="14" fill="#111827" stroke="#22d3ee" stroke-opacity="0.55"/>
+      <rect x="516" y="64" width="6" height="92" rx="3" fill="#22d3ee"/>
+      <circle cx="560" cy="110" r="22" fill="#22d3ee" fill-opacity="0.15" stroke="#22d3ee"/>
+      <path d="M550 111 l7 7 l13 -15" fill="none" stroke="#22d3ee" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="0.58s" fill="freeze"/></path>
+      <text x="598" y="97" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">React and Redux</text>
+      <text x="598" y="120" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#22d3ee">KnowledgeGate</text>
+      <text x="598" y="140" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">Scored 98%  |  Sep 2026</text>
+    </g><g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.36s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="0.36s" fill="freeze"/>
+      <rect x="20" y="172" width="480" height="92" rx="14" fill="#111827" stroke="#a78bfa" stroke-opacity="0.55"/>
+      <rect x="20" y="172" width="6" height="92" rx="3" fill="#a78bfa"/>
+      <circle cx="64" cy="218" r="22" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa"/>
+      <path d="M54 219 l7 7 l13 -15" fill="none" stroke="#a78bfa" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="0.76s" fill="freeze"/></path>
+      <text x="102" y="205" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">Prompt Engineering with OpenAI</text>
+      <text x="102" y="228" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#a78bfa">Columbia+</text>
+      <text x="102" y="248" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">Jul 2026</text>
+    </g><g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.54s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="0.54s" fill="freeze"/>
+      <rect x="516" y="172" width="480" height="92" rx="14" fill="#111827" stroke="#a78bfa" stroke-opacity="0.55"/>
+      <rect x="516" y="172" width="6" height="92" rx="3" fill="#a78bfa"/>
+      <circle cx="560" cy="218" r="22" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa"/>
+      <path d="M550 219 l7 7 l13 -15" fill="none" stroke="#a78bfa" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="0.94s" fill="freeze"/></path>
+      <text x="598" y="205" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">Machine Learning I</text>
+      <text x="598" y="228" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#a78bfa">Columbia+</text>
+      <text x="598" y="248" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">Jul 2026</text>
+    </g><g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.72s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="0.72s" fill="freeze"/>
+      <rect x="20" y="280" width="480" height="92" rx="14" fill="#111827" stroke="#34d399" stroke-opacity="0.55"/>
+      <rect x="20" y="280" width="6" height="92" rx="3" fill="#34d399"/>
+      <circle cx="64" cy="326" r="22" fill="#34d399" fill-opacity="0.15" stroke="#34d399"/>
+      <path d="M54 327 l7 7 l13 -15" fill="none" stroke="#34d399" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="1.12s" fill="freeze"/></path>
+      <text x="102" y="313" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">Gen AI Engineering Mastermind</text>
+      <text x="102" y="336" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#34d399">Outskill</text>
+      <text x="102" y="356" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">LLMs, prompt design, AI tools</text>
+    </g><g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.90s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="0.90s" fill="freeze"/>
+      <rect x="516" y="280" width="480" height="92" rx="14" fill="#111827" stroke="#34d399" stroke-opacity="0.55"/>
+      <rect x="516" y="280" width="6" height="92" rx="3" fill="#34d399"/>
+      <circle cx="560" cy="326" r="22" fill="#34d399" fill-opacity="0.15" stroke="#34d399"/>
+      <path d="M550 327 l7 7 l13 -15" fill="none" stroke="#34d399" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="1.30s" fill="freeze"/></path>
+      <text x="598" y="313" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">Generative AI Mastermind</text>
+      <text x="598" y="336" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#34d399">Outskill</text>
+      <text x="598" y="356" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">Applied GenAI workflows</text>
+    </g><g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="1.08s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="1.08s" fill="freeze"/>
+      <rect x="20" y="388" width="480" height="92" rx="14" fill="#111827" stroke="#f87171" stroke-opacity="0.55"/>
+      <rect x="20" y="388" width="6" height="92" rx="3" fill="#f87171"/>
+      <circle cx="64" cy="434" r="22" fill="#f87171" fill-opacity="0.15" stroke="#f87171"/>
+      <path d="M54 435 l7 7 l13 -15" fill="none" stroke="#f87171" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="1.48s" fill="freeze"/></path>
+      <text x="102" y="421" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">Generative AI Fundamentals</text>
+      <text x="102" y="444" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#f87171">Databricks</text>
+      <text x="102" y="464" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">Exam  |  Oct 2026</text>
+    </g><g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="1.26s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="1.26s" fill="freeze"/>
+      <rect x="516" y="388" width="480" height="92" rx="14" fill="#111827" stroke="#60a5fa" stroke-opacity="0.55"/>
+      <rect x="516" y="388" width="6" height="92" rx="3" fill="#60a5fa"/>
+      <circle cx="560" cy="434" r="22" fill="#60a5fa" fill-opacity="0.15" stroke="#60a5fa"/>
+      <path d="M550 435 l7 7 l13 -15" fill="none" stroke="#60a5fa" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="1.66s" fill="freeze"/></path>
+      <text x="598" y="421" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">AI Skills Passport</text>
+      <text x="598" y="444" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#60a5fa">EY and Microsoft</text>
+      <text x="598" y="464" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">General + employability</text>
+    </g><g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="1.44s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="1.44s" fill="freeze"/>
+      <rect x="20" y="496" width="480" height="92" rx="14" fill="#111827" stroke="#f472b6" stroke-opacity="0.55"/>
+      <rect x="20" y="496" width="6" height="92" rx="3" fill="#f472b6"/>
+      <circle cx="64" cy="542" r="22" fill="#f472b6" fill-opacity="0.15" stroke="#f472b6"/>
+      <path d="M54 543 l7 7 l13 -15" fill="none" stroke="#f472b6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="1.84s" fill="freeze"/></path>
+      <text x="102" y="529" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">Young Turks 2026</text>
+      <text x="102" y="552" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#f472b6">Naukri Campus</text>
+      <text x="102" y="572" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">99.69 percentile, India-wide contest</text>
+    </g><g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.6s" begin="1.62s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 18;0 0" dur="0.6s" begin="1.62s" fill="freeze"/>
+      <rect x="516" y="496" width="480" height="92" rx="14" fill="#111827" stroke="#fb923c" stroke-opacity="0.55"/>
+      <rect x="516" y="496" width="6" height="92" rx="3" fill="#fb923c"/>
+      <circle cx="560" cy="542" r="22" fill="#fb923c" fill-opacity="0.15" stroke="#fb923c"/>
+      <path d="M550 543 l7 7 l13 -15" fill="none" stroke="#fb923c" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="stroke-dasharray" values="0 40;40 0" dur="0.7s" begin="2.02s" fill="freeze"/></path>
+      <text x="598" y="529" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#f1f5f9">Introduction to IoT</text>
+      <text x="598" y="552" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#fb923c">NPTEL, IIT Kharagpur</text>
+      <text x="598" y="572" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="12" fill="#94a3b8">Jul-Oct 2025  |  58%</text>
+    </g>
+  <rect x="1" y="1" width="1014" height="612" rx="18" fill="none" stroke="#334155"/>
+</svg>

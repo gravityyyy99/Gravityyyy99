@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="150" viewBox="0 0 1000 150" role="img" aria-label="Thanks for visiting">
+  <defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="0.55" stop-color="#101a36"/><stop offset="1" stop-color="#1a1038"/></linearGradient>
+  <linearGradient id="ink" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#a78bfa"/><stop offset="1" stop-color="#f472b6"/></linearGradient>
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><clipPath id="fclip"><rect width="1000" height="150" rx="18"/></clipPath></defs>
+  <g clip-path="url(#fclip)">
+    <rect width="1000" height="150" fill="url(#bg)"/>
+    <path d="M0 96 Q 125 70 250 96 Q 375 70 500 96 Q 625 70 750 96 Q 875 70 1000 96 Q 1125 70 1250 96 Q 1375 70 1500 96 Q 1625 70 1750 96 Q 1875 70 2000 96 Q 2125 70 2250 96 V150 H0 Z" fill="#22d3ee" fill-opacity="0.25"><animateTransform attributeName="transform" type="translate" from="0 0" to="-500 0" dur="14s" repeatCount="indefinite"/></path><path d="M0 110 Q 125 90 250 110 Q 375 90 500 110 Q 625 90 750 110 Q 875 90 1000 110 Q 1125 90 1250 110 Q 1375 90 1500 110 Q 1625 90 1750 110 Q 1875 90 2000 110 Q 2125 90 2250 110 V150 H0 Z" fill="#a78bfa" fill-opacity="0.3"><animateTransform attributeName="transform" type="translate" from="0 0" to="-500 0" dur="9s" repeatCount="indefinite"/></path><path d="M0 124 Q 125 110 250 124 Q 375 110 500 124 Q 625 110 750 124 Q 875 110 1000 124 Q 1125 110 1250 124 Q 1375 110 1500 124 Q 1625 110 1750 124 Q 1875 110 2000 124 Q 2125 110 2250 124 V150 H0 Z" fill="#f472b6" fill-opacity="0.35"><animateTransform attributeName="transform" type="translate" from="0 0" to="-500 0" dur="6s" repeatCount="indefinite"/></path>
+    <text x="500" y="52" text-anchor="middle" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="url(#ink)">Thanks for stopping by</text>
+    <text x="500" y="78" text-anchor="middle" font-family="'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace" font-size="14" fill="#cbd5e1">return 0;  // exit code 0: no errors, only features</text>
+  </g>
+  <rect x="1" y="1" width="998" height="148" rx="18" fill="none" stroke="#334155"/>
+</svg>
