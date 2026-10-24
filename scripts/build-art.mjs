@@ -30,7 +30,7 @@ function header() {
     for (let k = 0; k < len; k++) spans += `<tspan x="${x.toFixed(1)}" dy="${k === 0 ? 0 : 20}">${esc(glyphs[Math.floor(rnd() * glyphs.length)])}</tspan>`;
     rain += `<text ${MONO} font-size="15" fill="#22d3ee" opacity="${(0.1 + rnd() * 0.22).toFixed(2)}" y="-220">${spans}<animateTransform attributeName="transform" type="translate" from="0 0" to="0 ${H + 260}" dur="${dur}s" begin="${begin}s" repeatCount="indefinite"/></text>`;
   }
-  const taglines = ['Computer Science Engineer @ Gandhi Engineering College', 'Full-stack developer | React | MongoDB | SQL', 'Visual storyteller | photographer | filmmaker', 'while (alive) { learn(); build(); ship(); }'];
+  const taglines = ['Full-stack developer + visual storyteller', 'Shipping features, framing shots', "git commit -m 'code meets cinema'", 'while (alive) { learn(); build(); ship(); }'];
   const tl = taglines.map((t, i) => `<text x="500" y="196" text-anchor="middle" ${MONO} font-size="19" fill="#e2e8f0" opacity="0">${esc(t)}<animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.21;0.25;1" dur="12s" begin="${i * 3}s" repeatCount="indefinite"/></text>`).join('');
   const floats = [['</>', 90, 70, '#22d3ee', 0], ['{ }', 905, 80, '#a78bfa', 1.2], ['npm i', 120, 270, '#34d399', 2.1], ['git push', 835, 268, '#f472b6', 0.6], ['async', 52, 170, '#fbbf24', 1.7], ['=>', 950, 175, '#22d3ee', 2.6]]
     .map(([t, x, y, c, d]) => `<g><text x="${x}" y="${y}" ${MONO} font-size="17" font-weight="700" fill="${c}" filter="url(#glow)" text-anchor="middle">${esc(t)}</text><animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0" dur="${(4 + d).toFixed(1)}s" begin="${-d}s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" keyTimes="0;0.5;1"/></g>`).join('');
@@ -54,7 +54,7 @@ function header() {
     <line x1="400" y1="150" x2="600" y2="150" stroke="url(#ink)" stroke-width="3" stroke-linecap="round"><animate attributeName="x1" values="500;400" dur="1.2s" fill="freeze"/><animate attributeName="x2" values="500;600" dur="1.2s" fill="freeze"/></line>
     ${tl}
     <text x="500" y="262" text-anchor="middle" ${MONO} font-size="14" fill="#64748b">// just a silly coder, chasing semicolons</text>
-    <text x="500" y="292" text-anchor="middle" ${MONO} font-size="15" fill="#34d399">$ <tspan fill="#e2e8f0">ssh dibya@bhubaneswar.in</tspan><tspan fill="#e2e8f0">_<animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/></tspan></text>
+    <text x="500" y="292" text-anchor="middle" ${MONO} font-size="15" fill="#34d399">$ <tspan fill="#e2e8f0">mail pradhandj07@gmail.com</tspan><tspan fill="#e2e8f0">_<animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/></tspan></text>
   </g>
   <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="18" fill="none" stroke="#334155"/>
 </svg>
@@ -161,7 +161,7 @@ function certs() {
     ['Generative AI Mastermind', 'Outskill', 'Applied GenAI workflows', '#34d399'],
     ['Generative AI Fundamentals', 'Databricks', 'Exam  |  Oct 2026', '#f87171'],
     ['AI Skills Passport', 'EY and Microsoft', 'General + employability', '#60a5fa'],
-    ['Young Turks 2026', 'Naukri Campus', '99.69 percentile, India-wide contest', '#f472b6'],
+    ['Young Turks 2026', 'Naukri Campus', 'Rank 1224, top 3000 | 99.69 percentile', '#f472b6'],
     ['Introduction to IoT', 'NPTEL, IIT Kharagpur', 'Jul-Oct 2025  |  58%', '#fb923c'],
   ];
   const cols = 2, cw = 480, ch = 92, gap = 16, pad = 20, head = 64;
@@ -197,13 +197,14 @@ function journey() {
   const W = 1000, H = 330;
   const nodes = [
     ['11-12', 'Class 11 and 12', 'Prabhujee English School', 'Physics, Chem, Maths, CS', '#fbbf24'],
-    ['2023', 'B.Tech CSE', 'Gandhi Engineering College', 'Where the real debugging began', '#22d3ee'],
-    ['QA', 'Game Beta Tester', 'UGW, FAU-G Domination, Indus', 'Hunting bugs in game builds', '#34d399'],
-    ['23-26', 'President, Media Club', 'PRATIBIMBA, GEC', 'Led campus media and events', '#a78bfa'],
-    ['2026', 'International Photography Win', 'Won an international event', 'One of my photos got featured', '#f472b6'],
+    ['2023', 'B.Tech CSE', 'Gandhi Engineering College', 'Where the debugging began', '#22d3ee'],
+    ['QA', 'Game Beta Tester', 'UGW, FAU-G, Indus', 'Hunting bugs in game builds', '#34d399'],
+    ['23-26', 'Media Club President', 'PRATIBIMBA, GEC', 'Led it for 3 years, then passed it on', '#a78bfa'],
+    ['2026', 'International Photo Win', 'Won an international event', 'One photo got featured', '#f472b6'],
+    ['Oct', 'Naukri Young Turks', 'Rank 1224, top 3000', '99.69 percentile', '#fbbf24'],
     ['Now', 'Final-year student', 'B.Tech CSE, CGPA 8.21', 'Building and learning', '#fb923c'],
   ];
-  const x0 = 125, step = 150, y = 130;
+  const x0 = 95, step = 135, y = 130;
   const pts = nodes.map((_, i) => x0 + i * step);
   const els = nodes.map(([tag, t, a, b, c], i) => {
     const x = pts[i];
