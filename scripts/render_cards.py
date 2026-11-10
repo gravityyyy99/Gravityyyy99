@@ -475,7 +475,7 @@ def repo(i, r):
         b.append(f'<circle cx="28" cy="{ly - 4}" r="5" fill="{LANG.get(r["language"], MUTED)}" class="p" style="animation-delay:{d + .6:.1f}s"/>')
         b.append(t(40, ly, r["language"], 11.5, SOFT, MONO))
     b.append(t(w - 22, ly, f"* {r['stars']}", 11.5, SOFT, MONO, anchor="end"))
-    svg(f"repo-{i + 1}.svg", h, "".join(b), left=6, right=6, w=w)
+    svg(f"project-{i + 1}.svg", h, "".join(b), left=6, right=6, w=w)
 
 
 # ================================ FOOTER =======================================
