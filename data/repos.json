@@ -19,5 +19,12 @@
   "language": "JavaScript",
   "stars": 1,
   "url": "https://github.com/gravityyyy99/thestoryteller-website"
+ },
+ {
+  "name": "the-nose-tral-network",
+  "description": "Aroma-GPT: an AI that learns what smells are made of, paired with a simulated electronic nose. Streamlit app, honest evaluation, real-hardware version planned.",
+  "language": "Python",
+  "stars": 3,
+  "url": "https://github.com/gravityyyy99/the-nose-tral-network"
  }
 ]

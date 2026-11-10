@@ -454,17 +454,21 @@ DESC_FALLBACK = {"thestoryteller-website": "Website for The Storyteller, my phot
 
 
 def repo(i, r):
-    w, h = W / 3 - 12, 210
+    w, h = W / 4 - 12, 236
     col = ACC[i % len(ACC)]
     b = [card(w, h)]
-    d = 0.2 + (i % 3) * 0.2
+    d = 0.1 + (i % 4) * 0.15
     b.append(t(22, 52, "repo", 11, MUTED, MONO, "f", d, extra='letter-spacing="1.6"'))
     b.append(arrow(w - 38, 34, INK, d))
     name = r["name"]
-    size = 26 if len(name) <= 16 else 21
+    size = 24 if len(name) <= 12 else 19
     b.append(t(22, 86, name, size, INK, SERIF, "r", d + 0.1))
     desc = r["description"] or DESC_FALLBACK.get(r["name"], "Work in progress.")
-    for j, ln in enumerate(textwrap.wrap(desc, 38)[:4]):
+    wrapped = textwrap.wrap(desc, 28)
+    if len(wrapped) > 5:
+        wrapped = wrapped[:5]
+        wrapped[-1] = wrapped[-1].rstrip(" ,.:;").rsplit(" ", 1)[0] + "..."
+    for j, ln in enumerate(wrapped):
         b.append(t(22, 112 + j * 17, ln, 12, SOFT, SANS, "f", d + 0.3 + j * 0.1))
     ly = h - 24
     if r["language"]:
@@ -527,7 +531,7 @@ if __name__ == "__main__":
     section("title-journey.svg", "My journey", "the story so far", CORAL)
     journey()
     section("title-code.svg", "What I'm coding", "latest from github", VIOLET)
-    for i, r in enumerate(REPOS[:3]):
+    for i, r in enumerate(REPOS[:4]):
         repo(i, r)
     live_terminal()
     footer()
