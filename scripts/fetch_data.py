@@ -4,7 +4,7 @@ import datetime, json, os, subprocess, urllib.request
 
 USER = os.environ.get("GH_USER", "gravityyyy99")
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-FEATURED = ["youtube-watch-party", "course-tube", "filmox", "Car-Khana", "AZKABAN-e-Sports", "thestoryteller-website"]
+FEATURED = ["youtube-watch-party", "filmox", "thestoryteller-website"]
 
 
 def token():

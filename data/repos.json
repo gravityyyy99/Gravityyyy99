@@ -7,32 +7,11 @@
   "url": "https://github.com/gravityyyy99/youtube-watch-party"
  },
  {
-  "name": "course-tube",
-  "description": "A YouTube-style home for your own courses: Google Drive, YouTube and TeraBox videos in one clean player, with course codes, notes and progress tracking.",
-  "language": "JavaScript",
-  "stars": 0,
-  "url": "https://github.com/gravityyyy99/course-tube"
- },
- {
   "name": "filmox",
   "description": "The Filmox \u2014 Luxury Wedding Cinematography Studio Platform",
   "language": "TypeScript",
   "stars": 1,
   "url": "https://github.com/gravityyyy99/filmox"
- },
- {
-  "name": "Car-Khana",
-  "description": "\ud83d\ude97 A modern car website featuring categories like luxury, F1, and sports cars. Explore sections and buy gear from the Merch store. Built with HTML, CSS, and JavaScript for a clean and smooth experience.",
-  "language": "JavaScript",
-  "stars": 1,
-  "url": "https://github.com/gravityyyy99/Car-Khana"
- },
- {
-  "name": "AZKABAN-e-Sports",
-  "description": "A modern esports organization website built using React.js + Vite, showcasing rosters, org story, and achievements for Azkaban e-Esports.",
-  "language": "CSS",
-  "stars": 1,
-  "url": "https://github.com/gravityyyy99/AZKABAN-e-Sports"
  },
  {
   "name": "thestoryteller-website",

@@ -7,8 +7,8 @@ Every card is shown through <img>, so it only uses what GitHub allows there: an 
 Data comes from data/contributions.json and data/repos.json (scripts/fetch_data.py).
 STATIC=1 renders every card at its end state (for screenshots).
 """
-import base64, datetime, json, os, textwrap
-from html import escape
+import base64, datetime, json, os, re, textwrap
+from html import escape, unescape
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
@@ -51,7 +51,7 @@ CSS = """
 .live{animation:pulse 1.6s ease-in-out infinite}
 .cur{animation:blink 1s steps(1) infinite}
 .nu{transform-box:fill-box;animation:nudge 1.8s ease-in-out infinite}
-.ti{opacity:0;transform-box:fill-box;transform-origin:50% 60%;animation:tilein 1.1s cubic-bezier(.2,.8,.2,1) both}
+.ti{opacity:0;transform-box:fill-box;transform-origin:50% 60%;animation:tilein .9s cubic-bezier(.2,.8,.2,1) both}
 .sh{animation:sheen 5s ease-in-out infinite}
 .rg{opacity:0;transform-box:fill-box;transform-origin:center;animation:ring 1s ease-out both}
 .dr{stroke-dasharray:var(--l);stroke-dashoffset:var(--l);animation:draw 1.4s ease-out both}
@@ -63,19 +63,40 @@ if STATIC:
     CSS += ".r,.f,.g,.p,.live,.cur,.nu,.ti,.dr,.wp,.ty{animation:none!important;opacity:1!important;transform:none!important;stroke-dashoffset:0!important;clip-path:none!important}.sh,.rg{display:none}"
 
 
-def fontcss(keys):
+_SUB = {}
+
+
+def subset_b64(fn, chars):
+    key = (fn, chars)
+    if key not in _SUB:
+        from fontTools import subset
+        import io
+        o = subset.Options()
+        o.flavor, o.layout_features, o.notdef_outline = "woff", ["kern", "liga"], True
+        f = subset.load_font(os.path.join(FONTS, fn), o)
+        sb = subset.Subsetter(o)
+        sb.populate(text=chars)
+        sb.subset(f)
+        buf = io.BytesIO()
+        f.flavor = "woff"
+        f.save(buf)
+        _SUB[key] = base64.b64encode(buf.getvalue()).decode()
+    return _SUB[key]
+
+
+def fontcss(keys, chars):
     out = []
     for k in keys:
         fam, fn, wt = FONT_FILES[k]
-        b = base64.b64encode(open(os.path.join(FONTS, fn), "rb").read()).decode()
-        out.append(f"@font-face{{font-family:'{fam}';font-weight:{wt};src:url(data:font/woff;base64,{b}) format('woff')}}")
+        out.append(f"@font-face{{font-family:'{fam}';font-weight:{wt};src:url(data:font/woff;base64,{subset_b64(fn, chars)}) format('woff')}}")
     return "".join(out)
 
 
 def svg(name, h, body, fonts=("serif", "sans", "sansb", "mono"), left=0, right=0, w=W, defs=""):
     H = h + GAP
+    chars = "".join(sorted(set(unescape("".join(re.findall(r">([^<]*)<", body))) + " 0123456789.,%+-")))
     s = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w + left + right:.2f}" height="{H}" viewBox="0 0 {w + left + right:.2f} {H}">'
-         f'<defs>{defs}<style>{fontcss(fonts)}{CSS}</style></defs>'
+         f'<defs>{defs}<style>{fontcss(fonts, chars)}{CSS}</style></defs>'
          f'<g transform="translate({left} 0)">{body}</g></svg>')
     open(os.path.join(OUT, name), "w", encoding="utf-8").write(s)
     print(f"{name}: {len(s)//1024} KB")
@@ -127,10 +148,10 @@ def hero(portrait=None, dark=False, out="hero.svg"):
     b = [card(W, h)]
     b.append(f'<rect x="43" y="41" width="10" height="10" rx="3" fill="{TEAL}" class="live"/>')
     b.append(t(62, 50, "OPEN TO WORK  /  BHUBANESWAR, INDIA", 11.5, MUTED, MONO, "ty", 0.2, extra='letter-spacing="1.6"'))
-    grad = (f'<linearGradient id="sg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="300" y2="0">'
+    grad = (f'<linearGradient id="sg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="300" y2="0" gradientTransform="translate(-260 0)">'
             f'<stop offset="0" stop-color="{INK}"/><stop offset=".42" stop-color="{INK}"/><stop offset=".5" stop-color="{TEAL}"/>'
             f'<stop offset=".58" stop-color="{INK}"/><stop offset="1" stop-color="{INK}"/>'
-            f'<animateTransform attributeName="gradientTransform" type="translate" values="-300 0;-300 0;420 0;420 0" keyTimes="0;.3;.6;1" dur="6s" begin="2.2s" repeatCount="indefinite"/></linearGradient>')
+            f'<animateTransform attributeName="gradientTransform" type="translate" values="-260 0;300 0;300 0" keyTimes="0;.4;1" dur="6s" begin="2.2s" repeatCount="indefinite"/></linearGradient>')
     b.append(t(44, 148, "Dibyajyoti", 100, INK, SERIF, "r", 0.3))
     b.append(t(44, 244, "Pradhan", 100, "url(#sg)" if not STATIC else INK, SERIF, "r", 0.6))
     b.append(t(48, 300, "Just a silly coder", 21, SOFT, SANS, "ty", 1.2))
@@ -292,46 +313,61 @@ def tile(name, color, tag, num, suffix, label, line2, textcol=INK, delay=0.0):
     b.append(f'<circle cx="{w - 34}" cy="34" r="16" fill="none" stroke="{textcol}" stroke-width="2" class="rg" style="animation-delay:{delay + 1:.1f}s"/>')
     b.append(t(26, 40, tag, 12, textcol, MONO, extra='letter-spacing="2.2" font-weight="600"'))
     b.append(arrow(w - 42, 26, textcol, delay))
-    b.append(countup(24, 150, num, 92, textcol, delay + 0.5, SERIF, suffix))
+    b.append(countup(24, 150, num, 92, textcol, delay + 0.3, SERIF, suffix, dur=1.0, steps=12))
     b.append(t(26, 185, label, 15, textcol, SANS, extra='font-weight="600"'))
     b.append(t(26, 208, line2, 12.5, textcol, SANS, extra='opacity=".78"'))
     b.append("</g>")
-    svg(name, h, "".join(b), left=6, right=6, w=w, defs=clip)
+    svg(name, h, "".join(b), fonts=("serif", "sansb", "mono"), left=6, right=6, w=w, defs=clip)
 
 
 def tiles():
     nrepos = 24
-    tile("build.svg", TEAL, "BUILD", nrepos, "", "repos and counting", "React, Node, Socket.IO, MongoDB", "#fff", 0.3)
-    tile("create.svg", CORAL, "CREATE", 3, " yrs", "Media Club president", "photography, film, game QA", "#fff", 0.55)
-    tile("learn.svg", AMBER, "LEARN", 9, "", "certifications earned", "JS, React, GenAI, ML, IoT", INK, 0.8)
+    tile("build.svg", TEAL, "BUILD", nrepos, "", "repos and counting", "React, Node, Socket.IO, MongoDB", "#fff", 0.05)
+    tile("create.svg", CORAL, "CREATE", 3, " yrs", "Media Club president", "photography, film, game QA", "#fff", 0.2)
+    tile("learn.svg", AMBER, "LEARN", 9, "", "certifications earned", "JS, React, GenAI, ML, IoT", INK, 0.35)
 
 
 # ================================ STACK ========================================
+ICONS = os.path.join(ROOT, "icons")
+
+
+def icon(name, x, y, size, color):
+    d = " ".join(re.findall(r' d="([^"]+)"', open(os.path.join(ICONS, name + ".svg"), encoding="utf-8").read()))
+    return f'<svg x="{x:.1f}" y="{y:.1f}" width="{size}" height="{size}" viewBox="0 0 24 24"><path d="{d}" fill="{color}"/></svg>'
+
+
+STACK_ROWS = [
+    [("Languages", [("HTML", "html5", "#E34F26"), ("CSS", "css3", "#1572B6"), ("Tailwind", "tailwindcss", "#06B6D4"), ("JavaScript", "javascript", "#F7DF1E"),
+                    ("Java", "openjdk", "#ED8B00"), ("Python", "python", "#3776AB"), ("TypeScript", "typescript", "#3178C6")], "TypeScript: still learning")],
+    [("Frontend", [("React", "react", "#61DAFB")], ""),
+     ("Databases", [("MongoDB", "mongodb", "#47A248"), ("MySQL", "mysql", "#4479A1"), ("Firebase", "firebase", "#FFCA28")], "Firebase: some"),
+     ("Creative tools", [("Premiere", "adobepremierepro", "#9999FF"), ("Photoshop", "adobephotoshop", "#31A8FF"), ("Canva", "canva", "#00C4CC")], "")],
+    [("Tools and deployment", [("Git", "git", "#F05032"), ("GitHub", "github", "#181717"), ("Vercel", "vercel", "#000000"),
+                               ("Netlify", "netlify", "#00C7B7"), ("Cloudflare", "cloudflare", "#F38020")], "")],
+]
+
+
 def stack():
-    groups = [
-        ("Languages", TEAL, ["HTML", "CSS", "Tailwind", "JavaScript", "Java", "Python", "TypeScript"], "TypeScript: still learning"),
-        ("Frontend", VIOLET, ["React"], ""),
-        ("Databases", CORAL, ["MongoDB", "MySQL", "Firebase"], "Firebase: some"),
-        ("Tools and deployment", AMBER, ["Git", "GitHub", "Vercel", "Netlify", "Cloudflare"], ""),
-        ("Creative tools", INK, ["Premiere Pro", "Photoshop", "Canva"], ""),
-    ]
-    h = 40 + len(groups) * 64 + 24
+    tw, th, pitch = 100, 100, 138
+    h = 34 + len(STACK_ROWS) * pitch - 14
     b = [card(W, h)]
-    y, k = 52, 0
-    for name, col, items, note in groups:
-        b.append(t(28, y, name.upper(), 11, MUTED, MONO, "f", 0.2 + k * 0.05, extra='letter-spacing="1.6"'))
-        if note:
-            b.append(t(W - 28, y, note, 11, MUTED, MONO, "f", 0.3, anchor="end"))
+    k = 0
+    for r, row in enumerate(STACK_ROWS):
+        y = 38 + r * pitch
         x = 28
-        for it in items:
-            cw = len(it) * 8.4 + 30
-            d = 0.35 + k * 0.07
-            tc = "#fff" if col in (INK, TEAL, VIOLET, CORAL) else INK
-            b.append(f'<g class="p" style="animation-delay:{d:.2f}s"><rect x="{x}" y="{y + 12}" width="{cw:.0f}" height="30" rx="15" fill="{col}"/>'
-                     f'{t(x + cw / 2, y + 32, it, 13, tc, SANS, anchor="middle", extra="font-weight=%s600%s" % (chr(34), chr(34)))}</g>')
-            x += cw + 10
-            k += 1
-        y += 64
+        for name, items, note in row:
+            b.append(t(x, y, name.upper(), 11, MUTED, MONO, "f", 0.1 + k * 0.03, extra='letter-spacing="1.6"'))
+            if note:
+                nx = W - 28 if len(row) == 1 else x + len(name) * 8.2 + 14
+                b.append(t(nx, y, note, 11, MUTED, MONO, "f", 0.2, anchor="end" if len(row) == 1 else "start"))
+            for label, ic, col in items:
+                d = 0.15 + k * 0.045
+                b.append(f'<g class="p" style="animation-delay:{d:.2f}s"><rect x="{x}" y="{y + 14}" width="{tw}" height="{th}" rx="18" fill="#fbfaf6" stroke="{RULE}"/>'
+                         f'{icon(ic, x + (tw - 40) / 2, y + 14 + 18, 40, col)}'
+                         f'{t(x + tw / 2, y + 14 + 82, label, 12, SOFT, SANS, anchor="middle", extra="font-weight=%s600%s" % (chr(34), chr(34)))}</g>')
+                x += tw + 12
+                k += 1
+            x += 16
     svg("stack.svg", h, "".join(b))
 
 
@@ -414,18 +450,20 @@ LANG = {"JavaScript": "#f1e05a", "TypeScript": "#3178c6", "CSS": "#9b6bff", "Pyt
 ACC = [TEAL, CORAL, AMBER, VIOLET, TEAL, CORAL]
 
 
+DESC_FALLBACK = {"thestoryteller-website": "Website for The Storyteller, my photography and cinematography brand."}
+
+
 def repo(i, r):
     w, h = W / 3 - 12, 210
     col = ACC[i % len(ACC)]
     b = [card(w, h)]
-    b.append(f'<rect x="0.5" y="0.5" width="{w - 1}" height="8" rx="4" fill="{col}"/>')
     d = 0.2 + (i % 3) * 0.2
     b.append(t(22, 52, "repo", 11, MUTED, MONO, "f", d, extra='letter-spacing="1.6"'))
     b.append(arrow(w - 38, 34, INK, d))
     name = r["name"]
     size = 26 if len(name) <= 16 else 21
     b.append(t(22, 86, name, size, INK, SERIF, "r", d + 0.1))
-    desc = r["description"] or "Work in progress."
+    desc = r["description"] or DESC_FALLBACK.get(r["name"], "Work in progress.")
     for j, ln in enumerate(textwrap.wrap(desc, 38)[:4]):
         b.append(t(22, 112 + j * 17, ln, 12, SOFT, SANS, "f", d + 0.3 + j * 0.1))
     ly = h - 24
@@ -438,11 +476,42 @@ def repo(i, r):
 
 # ================================ FOOTER =======================================
 def footer():
-    h = 90
+    h = 136
     b = [card(W, h, DARK, 22, "#2a2f3a")]
-    b.append(t(W / 2, 40, "Thanks for stopping by", 34, "#f4f1ea", SERIF, "r", 0.2, anchor="middle"))
-    b.append(t(W / 2, 66, "return 0;  // exit code 0: no errors, only features", 12.5, "#7d8590", MONO, "f", 0.7, anchor="middle"))
+    b.append(t(W / 2, 70, "Thanks for stopping by", 58, "#f4f1ea", SERIF, "r", 0.2, anchor="middle"))
+    b.append(t(W / 2, 108, "return 0;  // exit code 0: no errors, only features", 14, "#7d8590", MONO, "f", 0.7, anchor="middle"))
     svg("footer.svg", h, "".join(b), fonts=("serif", "mono"))
+
+
+def live_terminal():
+    h = 104
+    b = [card(W, h, DARK, 22, "#2a2f3a")]
+    for i, c in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
+        b.append(f'<circle cx="{30 + i * 18}" cy="26" r="5.5" fill="{c}" class="p" style="animation-delay:{i * .1}s"/>')
+    b.append(t(30, 72, "$ ssh dibya@live-terminal", 15, "#7ee787", MONO, "ty", 0.4))
+    b.append(f'<rect x="252" y="59" width="8" height="15" fill="{TEAL}" class="cur"/>')
+    b.append(t(W - 70, 70, "Live Terminal", 40, "#f4f1ea", SERIF, "r", 0.8, anchor="end"))
+    b.append(arrow(W - 52, 44, TEAL, 1.0, 20))
+    b.append(t(W - 70, 90, "an interactive about-me, in your browser", 11.5, "#7d8590", MONO, "f", 1.1, anchor="end"))
+    svg("live-terminal.svg", h, "".join(b), fonts=("serif", "mono"))
+
+
+SOCIALS = [("linkedin", "LinkedIn", "in/dibyajyotipradhan", "linkedin", "#0A66C2"),
+           ("email", "Email", "write to me", "gmail", "#EA4335"),
+           ("instagram", "Instagram", "@thestoryteller.raw", "instagram", "#E4405F"),
+           ("discord", "Discord", "gravityyyy99", "discord", "#5865F2")]
+
+
+def socials():
+    w, h = W / 4 - 12, 96
+    for i, (key, label, handle, ic, col) in enumerate(SOCIALS):
+        b = [card(w, h)]
+        d = 0.1 + i * 0.12
+        b.append(f'<g class="p" style="animation-delay:{d:.2f}s"><circle cx="40" cy="48" r="24" fill="{col}"/>{icon(ic, 28, 36, 24, "#ffffff")}</g>')
+        b.append(t(76, 50, label, 25, INK, SERIF, "r", d + 0.1))
+        b.append(t(76, 70, handle, 10, MUTED, MONO, "f", d + 0.25))
+        b.append(arrow(w - 34, 22, INK, d, 12))
+        svg(f"social-{key}.svg", h, "".join(b), left=6, right=6, w=w, fonts=("serif", "mono"))
 
 
 if __name__ == "__main__":
@@ -458,6 +527,8 @@ if __name__ == "__main__":
     section("title-journey.svg", "My journey", "the story so far", CORAL)
     journey()
     section("title-code.svg", "What I'm coding", "latest from github", VIOLET)
-    for i, r in enumerate(REPOS[:6]):
+    for i, r in enumerate(REPOS[:3]):
         repo(i, r)
+    live_terminal()
     footer()
+    socials()
