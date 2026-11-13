@@ -26,5 +26,12 @@
   "language": "Python",
   "stars": 3,
   "url": "https://github.com/gravityyyy99/the-nose-tral-network"
+ },
+ {
+  "name": "onconeuro-ai",
+  "description": "OncoNeuro AI: brain MRI classifier (ResNet-18 + Grad-CAM) with a multi-page Streamlit site. Learning project, not a medical tool.",
+  "language": "Python",
+  "stars": 0,
+  "url": "https://github.com/gravityyyy99/onconeuro-ai"
  }
 ]

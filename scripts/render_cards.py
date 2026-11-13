@@ -531,7 +531,7 @@ if __name__ == "__main__":
     section("title-journey.svg", "My journey", "the story so far", CORAL)
     journey()
     section("title-code.svg", "What I'm coding", "latest from github", VIOLET)
-    for i, r in enumerate(REPOS[:4]):
+    for i, r in enumerate(REPOS[:8]):
         repo(i, r)
     live_terminal()
     footer()
